@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script>
+
+    function turn_full_on(){
+        $(document).ready(function(){
+            $.post("turn_full_on")
+        });
+    };
+
+    function turn_full_off(){
+        $(document).ready(function(){
+            $.post("turn_full_off")
+        });
+    };
+
+    function turn_on(){
+        $(document).ready(function(){
+            $.post("turn_on")
+        });
+    };
+
+    function turn_off(){
+        $(document).ready(function(){
+            $.post("turn_off")
+        });
+    };
+
+    $(document).ready(function(){
+        var red_slider = document.getElementById("red");
+        var green_slider = document.getElementById("green");
+        var blue_slider = document.getElementById("blue");
+
+        red_slider.oninput = function() {
+            $.post("red_set", {value: this.value});
+        }
+
+        green_slider.oninput = function() {
+            $.post("green_set", {value: this.value});
+        }
+
+        blue_slider.oninput = function() {
+            $.post("blue_set", {value: this.value});
+        }
+    });
+
+    function red_toggle(){
+        $(document).ready(function(){
+            $.post("red_toggle")
+        });
+    };
+
+    function green_toggle(){
+        $(document).ready(function(){
+            $.post("green_toggle")
+        });
+    };
+
+    function blue_toggle(){
+        $(document).ready(function(){
+            $.post("blue_toggle")
+        });
+    };
+
+    </script>
+
+</head>
+<body style="background-color:#4286f4;Text-align:center" >
+
+    <div>
+        <h1>LED Projekt</h1>
+    </div>
+
+    <div style="padding-left:38%;padding-right:38%;" id="trigger"></div>
+    <div>
+                <button type="button" id="on_full" onclick="turn_full_on()" style="...">LED Einschalten</button>
+        <button type="button" id="off_full" onclick="turn_full_off()" style="...">LED Ausschalten</button><br><br><br>
+
+        <button type="button" id="on" onclick="turn_on()" style="...">LED Unmute</button>
+        <button type="button" id="off" onclick="turn_off()" style="...">LED Mute</button><br>
+
+        <div class="slidecontainer">
+            <input type="range" min="0" max="15" value="0" class="slider" id="red">
+            <button type="button" id="red_toggle" onclick="red_toggle()" style="...">ROT Mute / Unmute</button><br>
+
+            <input type="range" min="0" max="15" value="0" class="slider" id="green">
+            <button type="button" id="green_toggle" onclick="green_toggle()" style="...">GRÜN Mute / Unmute</button><br>
+
+            <input type="range" min="0" max="15" value="0" class="slider" id="blue">
+            <button type="button" id="blue_toggle" onclick="blue_toggle()" style="...">BLAU Mute / Unmute</button><br>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
