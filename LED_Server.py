@@ -1,7 +1,4 @@
-#import LED_I2C_Interface as LED
-
-import LED_Util as LED
-
+import LED_I2C_Interface as LED
 import SimpleHTTPServer
 import SocketServer
 import cgi

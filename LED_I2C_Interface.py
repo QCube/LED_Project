@@ -4,6 +4,16 @@ def chip_init():
     os.system("i2cset -y 1 0x49 0x00 0x00")
     os.system("i2cset -y 1 0x49 0x01 0x04")
 
+def on():
+    RED.on()
+    GREEN.on()
+    BLUE.on()
+
+def off():
+    RED.off()
+    GREEN.off()
+    BLUE.off()
+
 class LED():
     def __init__(self, i2c_adress):
         self.value = 0
@@ -41,6 +51,10 @@ class LED():
 
 
 chip_init()
+
+RED = LED("0x49 0x09")
+GREEN = LED("0x49 0x0d")
+BLUE = LED("0x49 0x11")
 
 if __name__ == "__main__":
     chip_init()
